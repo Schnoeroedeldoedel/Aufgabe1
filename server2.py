@@ -5,21 +5,24 @@
 
 import asyncio
 import websockets
+
+# Coroutine that takes in a future
 import CourseXMLParser
 
 
-# Coroutine that takes in a future
 async def chat(websocket, path):
-    while (True):
+    while(True):
         msg = await websocket.recv()
-        print(f"From Client: {msg}")
+
         if msg == "q": break
-        if msg == "1":
+        if msg == "check-user":
+            print("Check")
+            username = await websocket.recv()
+            password = await websocket.recv()
+            msg = "True"
+        if msg == "get-schema":
+            print("Schema")
             msg = CourseXMLParser.parse_schema()
-        if msg == "2":
-            msg = str(CourseXMLParser.parse_courses())
-        if msg == "3":
-            pass
         await websocket.send(msg)
 
 
@@ -38,3 +41,4 @@ loop.run_until_complete(start_server)
 # This causes the main thread to block indefinitely
 # End the loop with stop() method or Ctrl-C
 loop.run_forever()
+
