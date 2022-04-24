@@ -8,4 +8,3 @@ xsd = xmlschema.XMLSchema("test.xsd")
 
 valid = xsd.is_valid(xml)
 print(valid)
-
