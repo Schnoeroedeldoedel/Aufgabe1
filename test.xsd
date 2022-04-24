@@ -3,76 +3,70 @@
     <xs:element name="veranstaltungen">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="veranstaltung" minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="veranstaltung" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="veranstaltung" maxOccurs="unbounded" minOccurs="0">
+                            <xs:element type="xs:int" name="guid"/>
+                            <xs:element type="xs:string" name="nummer"/>
+                            <xs:element type="xs:string" name="name"/>
+                            <xs:element type="xs:string" name="untertitel"/>
+                            <xs:element name="dvv_kategorie">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:float">
+                                            <xs:attribute type="xs:float" name="version" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:int" name="minimale_teilnehmerzahl"/>
+                            <xs:element type="xs:int" name="maximale_teilnehmerzahl"/>
+                            <xs:element type="xs:int" name="anzahl_termine"/>
+                            <xs:element type="xs:date" name="beginn_datum"/>
+                            <xs:element type="xs:date" name="ende_datum"/>
+                            <xs:element type="xs:string" name="zielgruppe"/>
+                            <xs:element type="xs:string" name="schlagwort" maxOccurs="unbounded"
+                                        minOccurs="0"/>
+                            <xs:element name="text" maxOccurs="unbounded" minOccurs="0">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element type="xs:int" name="guid"/>
-                                        <xs:element type="xs:string" name="nummer"/>
+                                        <xs:element type="xs:string" name="eigenschaft"/>
+                                        <xs:element type="xs:string" name="text"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="veranstaltungsort">
+                                <xs:complexType>
+                                    <xs:sequence>
                                         <xs:element type="xs:string" name="name"/>
-                                        <xs:element type="xs:string" name="untertitel"/>
-                                        <xs:element name="dvv_kategorie">
-                                            <xs:complexType>
-                                                <xs:simpleContent>
-                                                    <xs:extension base="xs:float">
-                                                        <xs:attribute type="xs:float" name="version" use="optional"/>
-                                                    </xs:extension>
-                                                </xs:simpleContent>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element type="xs:int" name="minimale_teilnehmerzahl"/>
-                                        <xs:element type="xs:int" name="maximale_teilnehmerzahl"/>
-                                        <xs:element type="xs:int" name="anzahl_termine"/>
-                                        <xs:element type="xs:date" name="beginn_datum"/>
-                                        <xs:element type="xs:date" name="ende_datum"/>
-                                        <xs:element type="xs:string" name="zielgruppe"/>
-                                        <xs:element type="xs:string" name="schlagwort" maxOccurs="unbounded"
-                                                    minOccurs="0"/>
-                                        <xs:element name="text" maxOccurs="unbounded" minOccurs="0">
+                                        <xs:element name="adresse">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element type="xs:string" name="eigenschaft"/>
-                                                    <xs:element type="xs:string" name="text"/>
+                                                    <xs:element type="xs:string" name="land"/>
+                                                    <xs:element type="xs:short" name="plz"/>
+                                                    <xs:element type="xs:string" name="ort"/>
+                                                    <xs:element type="xs:date" name="strasse"/>
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
-                                        <xs:element name="veranstaltungsort">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element type="xs:string" name="name"/>
-                                                    <xs:element name="adresse">
-                                                        <xs:complexType>
-                                                            <xs:sequence>
-                                                                <xs:element type="xs:string" name="land"/>
-                                                                <xs:element type="xs:short" name="plz"/>
-                                                                <xs:element type="xs:string" name="ort"/>
-                                                                <xs:element type="xs:date" name="strasse"/>
-                                                            </xs:sequence>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                    <xs:element type="xs:string" name="barrierefrei"/>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="preis">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element type="xs:float" name="betrag"/>
-                                                    <xs:element type="xs:boolean" name="rabatt_moeglich"/>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="webadresse">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element type="xs:string" name="typ"/>
-                                                    <xs:element type="xs:string" name="name"/>
-                                                    <xs:element type="xs:string" name="uri"/>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
+                                        <xs:element type="xs:string" name="barrierefrei"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="preis">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:float" name="betrag"/>
+                                        <xs:element type="xs:boolean" name="rabatt_moeglich"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="webadresse">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="typ"/>
+                                        <xs:element type="xs:string" name="name"/>
+                                        <xs:element type="xs:string" name="uri"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
