@@ -1,0 +1,102 @@
+<veranstaltungen>
+    <veranstaltung>
+        <guid>618187</guid>
+        <nummer>Sp4.510.07F</nummer>
+        <name>Deutsch A1.2/LL</name>
+        <untertitel>Senats-Elternkurs</untertitel>
+        <dvv_kategorie version="1.0">4.04</dvv_kategorie>
+        <minimale_teilnehmerzahl>7</minimale_teilnehmerzahl>
+        <maximale_teilnehmerzahl>9</maximale_teilnehmerzahl>
+        <anzahl_termine>100</anzahl_termine>
+        <beginn_datum>2022-03-28</beginn_datum>
+        <ende_datum>2022-08-22</ende_datum>
+        <zielgruppe>Menschen mit Migrationshintergrund</zielgruppe>
+        <schlagwort>A2</schlagwort>
+        <schlagwort>BigBlueButton</schlagwort>
+        <schlagwort>Deutsch Fremdsprache</schlagwort>
+        <schlagwort>Eltern</schlagwort>
+        <schlagwort>Hybridkurs</schlagwort>
+        <schlagwort>Migranten</schlagwort>
+        <schlagwort>SPRACHEN</schlagwort>
+        <schlagwort>vhs.cloud</schlagwort>
+        <text>
+            <eigenschaft>Beschreibung</eigenschaft>
+            <text />
+        </text>
+        <text>
+            <eigenschaft>Zusatzinformation</eigenschaft>
+            <text>Der EK wird im Präsenzformat angeboten. Im Krankheitsfall wird der Kurs als Online-Unterricht weiter geführt.</text>
+        </text>
+        <veranstaltungsort>
+            <name>Grundschule am Birkenhain</name>
+            <adresse>
+                <land>Deutschland</land>
+                <plz>13581</plz>
+                <ort>Berlin</ort>
+                <strasse>Seeburger Str. 59</strasse>
+            </adresse>
+            <barrierefrei>false</barrierefrei>
+        </veranstaltungsort>
+        <preis>
+            <betrag>20.00</betrag>
+            <rabatt_moeglich>false</rabatt_moeglich>
+            <zusatz />
+        </preis>
+        <webadresse>
+            <typ>website</typ>
+            <name>zur Kursbuchung</name>
+            <uri>http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseDetail.aspx?id=618187</uri>
+        </webadresse>
+    </veranstaltung>
+    <veranstaltung>
+        <guid>620057</guid>
+        <nummer>Sp4.215.03</nummer>
+        <name>Deutsch Alphabetisierung 3</name>
+        <untertitel />
+        <dvv_kategorie version="1.0">4.04</dvv_kategorie>
+        <minimale_teilnehmerzahl>8</minimale_teilnehmerzahl>
+        <maximale_teilnehmerzahl>12</maximale_teilnehmerzahl>
+        <anzahl_termine>100</anzahl_termine>
+        <beginn_datum>2022-03-28</beginn_datum>
+        <ende_datum>2022-05-05</ende_datum>
+        <zielgruppe>Menschen mit Migrationshintergrund</zielgruppe>
+        <schlagwort>BAMF Kursbeginn übermittelt</schlagwort>
+        <schlagwort>BAMF Kursplanung übermittelt</schlagwort>
+        <schlagwort>BigBlueButton</schlagwort>
+        <schlagwort>Deutsch Fremdsprache</schlagwort>
+        <schlagwort>Hybridkurs</schlagwort>
+        <schlagwort>Migranten</schlagwort>
+        <schlagwort>Orientierungskurs</schlagwort>
+        <schlagwort>vhs.cloud</schlagwort>
+        <text>
+            <eigenschaft>Beschreibung</eigenschaft>
+            <text>Dieser Kurs ist Teil eines Integrationskurses gemäß §43 Aufenthaltsgesetz.
+
+Der allgemeine Integrationskurs umfasst 700 Unterrichtsstunden und hat zum Ziel, in 600 Unterrichtsstunden Deutschkenntnisse auf dem Niveau B1 des Gemeinsamen Europäischen Referenzrahmens (GER) sowie in 100 Unterrichtsstunden Kenntnisse der Rechtsordnung, Kultur und Geschichte in Deutschland zu vermitteln. Der Erwerb der Deutschkenntnisse geschieht anhand von alltagsbezogenen Inhalten wie Arbeit, Wohnen, Gesundheit oder Ämter und Behörden. Im 100 Unterrichtsstunden umfassenden Orientierungskurs werden die Themenbereiche Politik in der Demokratie, Geschichte und Verantwortung sowie Mensch und Gesellschaft behandelt. Der allgemeine Integrationskurs schließt mit den beiden skalierten Abschlusstests </text>
+        </text>
+        <text>
+            <eigenschaft>Zusatzinformation</eigenschaft>
+            <text>Anmeldung: Di 10 bis 14 Uhr, Do 15 bis 19 Uhr,Carl-Schurz-Str.17. In den Schulferien findet keine Beratung statt. Eine Förderung der Teilnehmer durch das BAMF ist möglich. Bitte bringen Sie Pass, Anmeldebescheinigung und Sozialnachweise zur Anmeldung mit.</text>
+        </text>
+        <veranstaltungsort>
+            <name>VHS-Filiale Eiswerderstr. 7</name>
+            <adresse>
+                <land>Deutschland</land>
+                <plz>13585</plz>
+                <ort>Berlin</ort>
+                <strasse>Eiswerderstr.7</strasse>
+            </adresse>
+            <barrierefrei>false</barrierefrei>
+        </veranstaltungsort>
+        <preis>
+            <betrag>235.00</betrag>
+            <rabatt_moeglich>false</rabatt_moeglich>
+            <zusatz />
+        </preis>
+        <webadresse>
+            <typ>website</typ>
+            <name>zur Kursbuchung</name>
+            <uri>http://www.vhsit.berlin.de/VHSKURSE/BusinessPages/CourseDetail.aspx?id=620057</uri>
+        </webadresse>
+    </veranstaltung>
+</veranstaltungen>
