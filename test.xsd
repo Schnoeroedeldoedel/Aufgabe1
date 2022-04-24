@@ -45,7 +45,7 @@
                                                     <xs:element type="xs:string" name="land"/>
                                                     <xs:element type="xs:short" name="plz"/>
                                                     <xs:element type="xs:string" name="ort"/>
-                                                    <xs:element type="xs:date" name="strasse"/>
+                                                    <xs:element type="xs:string" name="strasse"/>
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
@@ -58,6 +58,7 @@
                                     <xs:sequence>
                                         <xs:element type="xs:float" name="betrag"/>
                                         <xs:element type="xs:boolean" name="rabatt_moeglich"/>
+                                        <xs:element type="xs:string" name="zusatz"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
