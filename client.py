@@ -1,54 +1,52 @@
+""" Websocket client
+
+    source: https://codingpointer.com/python-tutorial/python-websockets
+"""
+
 import asyncio
-import threading
-import ast
+import time
+
 import websockets
-import json
+import threading
 
-def run_client(address, port):
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    loop.run_until_complete(create_client(address, port))
-    loop.run_forever()
-
-
-def start_client(address, port):
-    thread = threading.Thread(target=run_client, args=(address, port))
-    thread.start()
+current_output = ""
+current_args = [""]
+send_event = threading.Event()
+write_lock = threading.Lock()
 
 
-async def lock_lock():
-    await lock.acquire()
+def put_values(args):
+    global current_args
+    current_args = args
+    send_event.wait()
+    current_args = [""]
 
 
-lock = asyncio.Lock()
-MESSAGE = ""
+def check_login(user, password):
+    put_values(["check-user", user, password])
+    return current_output
 
 
-def post_login(username, password):
-    global MESSAGE
-    MESSAGE = f"{username}:{password}"
-    lock.release()
+def get_schema():
+    put_values(["get-schema"])
+    return current_output
 
 
-async def create_client(address, port):
-    global MESSAGE
-    async with websockets.connect(f"ws://{address}:{port}") as websocket:
+# Coroutine that takes in a future
+async def communicate():
+    global current_args, current_output
+    async with websockets.connect("ws://localhost:8765") as websocket:
+        while True:
+            args = current_args.copy()
+            command = args[0]
+            write = command != ""
+            if command == "q": break
+            # send args
+            for arg in args:
+                await websocket.send(arg)
 
-        await websocket.send("1")
-        schema = await websocket.recv()
-        await websocket.send("2")
-        courses = await websocket.recv()
-        courses = json.loads(courses)
-        for course in courses:
-            print(f"{course} {courses[course]['GUID']} {courses[course]['Name']}")
-        while (True):
-            msg = input("gib was ein:")
-            if msg == "q": break
-            await websocket.send(msg)
-
-            msg = await websocket.recv()
-            print(f"From Server: {msg}")
-
-
-if __name__ == '__main__':
-    run_client("localhost", 8765)
+            resp = await websocket.recv()
+            if write:
+                current_output = resp
+                # lock, so value can be safely returned
+                send_event.set()
