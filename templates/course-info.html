@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content%}
+{% for x in course %}
+<div>
+    <span>{{x}} :</span>
+    <span>{{course[x]}}</span>
+</div>
+
+{% endfor %}
+{% endblock %}

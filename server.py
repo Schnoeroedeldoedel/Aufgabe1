@@ -12,17 +12,30 @@ import CourseXMLParser
 
 async def chat(websocket, path):
     while(True):
-        msg = await websocket.recv()
-
-        if msg == "q": break
-        if msg == "check-user":
+        recv = await websocket.recv()
+        msg = "placeholder"
+        if recv == "q": break
+        if recv == "all-courses":
+            print("Alle Kurse")
+            msg = CourseXMLParser.parse_all_courses()
+        if recv == "check-user":
             print("Check")
             username = await websocket.recv()
             password = await websocket.recv()
             msg = "True"
-        if msg == "get-schema":
+        if recv == "get-schema":
             print("Schema")
             msg = CourseXMLParser.parse_schema()
+        if recv == "get-course":
+            guid = await websocket.recv()
+            print(f"Frage Kurs {guid} ab")
+            msg = CourseXMLParser.parse_course(guid)
+        if recv == "book-course":
+            print("Buchen")
+            kurs = await websocket.recv()
+        if recv == "courses-for-user":
+            print("Buchungen anzeigen")
+            user = await websocket.recv()
         await websocket.send(msg)
 
 

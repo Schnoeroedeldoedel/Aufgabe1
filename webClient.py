@@ -1,6 +1,8 @@
 import asyncio
+import json
 
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, redirect
+
 import client
 from threading import Thread
 
@@ -13,9 +15,28 @@ def index():
         username = request.form['username']
         password = request.form['password']
         # sende hier an den server
-        client.check_login(username, password)
-        client.get_schema()
-    return render_template("login.html")
+        check = client.check_login(username, password)
+        schema = client.get_schema()
+        print(check)
+        print(schema)
+        return redirect(url_for("courses"))
+    else:
+        return render_template("login.html")
+
+
+@app.route("/all_courses", methods=["POST", "GET"])
+def courses():
+    all_courses = client.get_all_courses()
+    print(all_courses)
+    dic = dict(json.loads(all_courses))
+
+    return render_template("courses.html", content=dic)
+
+
+@app.route("/all_courses/<course_id>")
+def course_info(course_id):
+    info = client.get_course_info(course_id)
+    return render_template("course-info.html", course = info)
 
 
 def start_background_loop(loop):

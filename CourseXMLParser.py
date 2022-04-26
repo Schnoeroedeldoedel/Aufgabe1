@@ -8,15 +8,19 @@ import json
 SOURCE = "Kurse.xml"
 
 xml = ET.parse(SOURCE)
-xsd = xmlschema.XMLSchema("test.xsd")
+xsd = xmlschema.XMLSchema("schemaKurse.xsd")
 
 
 def is_valid():
     valid = xsd.is_valid(xml)
     print(valid)
 
+def parse_course(guid):
+    ret = xml.find(f"veranstaltung[@GUID={guid}]")
+    return ret
 
-def parse_courses():
+
+def parse_all_courses():
     ret = {}
     i = 1
     for child in xml.getroot():
@@ -39,10 +43,5 @@ def parse_xml():
 
 
 def parse_schema():
-    with open("test.xsd") as f:
+    with open("schemaKurse.xsd") as f:
         return f.read()
-
-
-if __name__ == '__main__':
-    print(is_valid())
-    print(parse_courses())

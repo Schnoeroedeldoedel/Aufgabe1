@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content%}
+<h1>
+    Alle Kurse
+</h1>
+<div style="overflow-y: auto; height: 600px">
+    <div style="
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: flex-start;
+    align-items: stretch;">
+        {% for x in content %}
+        <button type="button" onclick="window.location.href='{{ url_for('course_info' , course_id = content[x]['GUID'] ) }}';" style="height: 40px">
+            {{content[x]['Name']}}
+        </button>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
