@@ -23,7 +23,7 @@ def put_values(args):
     global current_args, send_flag, new_command
     send_event.clear()
 
-    new_cycle.wait() # set new args while socket is stuck in loop, to ensure new args are used
+    new_cycle.wait()  # set new args while socket is stuck in loop, to ensure new args are used
     current_args = args  # release socket from spin
     new_cycle.clear()
     test.set()
@@ -33,7 +33,7 @@ def put_values(args):
 
 def check_login(user, password):
     recv_output(["check-user", user, password])
-    return current_output
+    return current_output == "True"
 
 
 def get_schema():
@@ -48,6 +48,11 @@ def get_all_courses():
 
 def get_course_info(guid):
     recv_output(["get-course", guid])
+    return current_output
+
+
+def get_booked_courses(username):
+    recv_output(["get-booked-courses", username])
     return current_output
 
 

@@ -11,7 +11,7 @@ import CourseXMLParser
 
 
 async def chat(websocket, path):
-    while(True):
+    while (True):
         recv = await websocket.recv()
         msg = "placeholder"
         if recv == "q": break
@@ -33,6 +33,10 @@ async def chat(websocket, path):
         if recv == "book-course":
             print("Buchen")
             kurs = await websocket.recv()
+        if recv == "get-booked-courses":
+            username = await websocket.recv()
+            print(f"Kurse für {username} finden")
+            msg = CourseXMLParser.get_courses_for_user(username)
         if recv == "courses-for-user":
             print("Buchungen anzeigen")
             user = await websocket.recv()
@@ -54,4 +58,3 @@ loop.run_until_complete(start_server)
 # This causes the main thread to block indefinitely
 # End the loop with stop() method or Ctrl-C
 loop.run_forever()
-
